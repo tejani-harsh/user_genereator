@@ -32,8 +32,14 @@ export default function PopUpCard({
         </Typography>
         <Typography variant="body2">{`${age}- ${gender}`}</Typography>
         <CardActions>
-          <Button sx={{ align: "end" }} size="small">
-            Learn More
+          <Button size="small">Learn More</Button>
+          <Button
+            size="small"
+            onClick={() => {
+              location.reload();
+            }}
+          >
+            Get New User
           </Button>
         </CardActions>
       </CardContent>
