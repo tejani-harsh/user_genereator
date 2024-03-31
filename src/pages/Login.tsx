@@ -1,7 +1,9 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const userName = useRef<any>();
   const pass = useRef();
   async function handelSubmit() {
@@ -17,6 +19,9 @@ export default function Login() {
     });
 
     // Assuming response.status = 200
+    if (response.status >= 400) {
+      navigate("/user");
+    }
   }
   return (
     <>
