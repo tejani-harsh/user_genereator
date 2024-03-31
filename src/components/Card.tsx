@@ -16,7 +16,7 @@ export default function PopUpCard({
   gender: string;
 }) {
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: "200px", width: "100%" }}>
       <CardContent>
         <Typography
           sx={{ fontSize: 14 }}
