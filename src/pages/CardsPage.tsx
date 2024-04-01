@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PopUpCard from "../components/Card";
+import { useSelector } from "react-redux";
 
 function CardsPage() {
   const [userData, setUserData] = useState();
@@ -12,6 +13,8 @@ function CardsPage() {
 
     fetchData();
   }, []);
+
+  const userLoggedIn = useSelector((state) => state.username.value);
 
   const user: [
     {
@@ -49,6 +52,9 @@ function CardsPage() {
 
   return (
     <>
+      <div>
+        <h1> Hello {userLoggedIn}</h1>
+      </div>
       <div
         style={{
           display: "flex",

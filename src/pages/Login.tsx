@@ -1,15 +1,17 @@
 import { Button, TextField, Typography } from "@mui/material";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogName } from "../redux/username/usernameSlice.js";
 
 export default function Login() {
   const navigate = useNavigate();
   const userName = useRef<any>();
   const pass = useRef();
-  async function handelSubmit() {
-    console.log(userName.current.value);
-    console.log(pass.current.value);
 
+  const dispatch = useDispatch();
+
+  async function handelSubmit() {
     const response = await fetch("Url", {
       method: "POST",
       body: {
@@ -17,6 +19,8 @@ export default function Login() {
         pass: pass.current.value,
       },
     });
+
+    dispatch(userLogName(userName.current.value));
 
     // Assuming response.status = 200
     if (response.status >= 400) {
